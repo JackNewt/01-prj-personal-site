@@ -1,1 +1,408 @@
 /* Add you CSS here */
+
+/* Navigation Bar Styles */
+.navbar {
+  /* Make the navbar stay at the top */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Set background color */
+  background-color: #101010; /* Dark background */
+  /* Add some space inside the navbar */
+  padding: 10px 0;
+  /* Make sure it appears above other content */
+  z-index: 1000;
+  /* Make the navbar use flex to arrange title and links */
+  display: flex; /* Arrange children in a row */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Space between title and menu/button */
+}
+
+/* Remove default list styling */
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  /* Display items in a row */
+  display: flex;
+  justify-content: flex-start; /* Align links to the left */
+}
+
+/* Style for the website title */
+.navbar-title {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 20px; /* Add some space from the left edge */
+  margin-right: 30px; /* Add space between title and links */
+}
+
+/* Style each navigation link */
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 12px;
+  /* Add rounded corners on hover */
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.navbar a:hover {
+  background-color: #555;
+}
+
+/* Add space at the top of the page so content is not hidden behind navbar */
+body {
+  margin-top: 60px; /* Adjust if your navbar is taller */
+  background-color: #252525; /* Set the main background color */
+  font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'Arial', sans-serif; /* Set main text font */
+}
+
+/* Hero Section Wrapper: puts hero box and image side by side */
+.hero-section-wrapper {
+  display: flex; /* Arrange hero box and image in a row */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center;     /* Center the content vertically */
+  margin-bottom: 30px;     /* Space below the hero section */
+}
+
+/* Hero box: contains all the text */
+.hero {
+  /* Hero box styles */
+  background-color: #FEC97A;
+  padding: 10px 20px 20px 40px; /* Less space at the top */
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  width: 100%;           /* Fill all available horizontal space */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Stack text vertically */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Hero text styles */
+.hero-text {
+  font-size: 40px; /* Decreased from 45px to 40px */
+  padding: 10px 0;
+}
+
+/* Hero image: sits outside the hero box */
+.hero-image {
+  max-width: 250px;
+  width: 100%;
+  border-radius: 20px; /* Rounded image corners */
+  box-shadow: 0 4px 16px rgba(0,0,0,0.16); /* Slightly stronger shadow for image */
+  margin-left: 30px; /* Space between hero box and image */
+}
+
+/* Responsive: Stack hero box and image vertically on small screens */
+@media (max-width: 700px) {
+  .hero-section-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-image {
+    margin-left: 0;
+    margin-top: 20px;
+    max-width: 80vw;
+  }
+  .hero {
+    max-width: 95vw;
+    align-items: center;
+  }
+}
+
+/* Divider between sections */
+.section-divider {
+  border: none;
+  border-top: 2px solid #e0c97f; /* Soft gold line */
+  margin: 30px 0;
+}
+
+/* Hide the menu button by default */
+.navbar-toggle {
+  display: none;
+  background-color: transparent; /* Remove background for image button */
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-right: 20px;
+  margin-left: auto; /* Pushes the button to the right */
+}
+
+/* Style for the menu icon image */
+.navbar-toggle img {
+  width: 28px; /* Set icon size */
+  height: 28px;
+  display: block;
+}
+
+/* Responsive: Stack hero halves vertically on small screens */
+@media (max-width: 700px) {
+  .hero {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+  .hero-left, .hero-right {
+    padding: 10px 0;
+  }
+}
+
+/* Responsive: Stack title and links vertically on small screens */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar-title {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .navbar-toggle {
+    display: block; /* Show the menu button */
+  }
+  .navbar ul {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    display: none; /* Hide links by default on small screens */
+    background-color: #333; /* Match navbar background */
+    margin-bottom: 10px;
+  }
+  .navbar li {
+    margin: 10px 0 10px 20px;
+  }
+}
+
+/* Show the navigation links when menu is open */
+@media (max-width: 600px) {
+  .navbar ul.show {
+    display: flex !important;
+  }
+}
+
+/* About Me Section Wrapper: puts bio box and image side by side */
+.bio-section-wrapper {
+  display: flex; /* Arrange bio box and image in a row */
+  flex-direction: row; /* Put image on the left, text on the right */
+  justify-content: center; /* Center the content horizontally */
+  align-items: stretch;    /* Stretch children to the same height */
+  margin-bottom: 30px;     /* Space below the about me section */
+}
+
+/* Bio box: contains all the text */
+.bio {
+  background-color: #feb57a;
+  padding: 10px 20px 20px 40px; /* Less space at the top, more on the left */
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  width: 100%;           /* Fill all available horizontal space */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Stack text vertically */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Bio text styles */
+.bio-text {
+  font-size: 40px;
+  padding: 10px 0;
+}
+
+/* Make paragraphs in the about section a bit smaller for readability */
+.bio-text p {
+  font-size: 25px;
+}
+
+/* Bio image: sits outside the bio box */
+.bio-image {
+  max-width: 400px;
+  width: 100%;
+  height: 100%;         /* Make image fill the height of the text box */
+  object-fit: cover;    /* Crop image to fit if needed */
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+  margin-right: 30px; /* Space between bio box and image */
+}
+
+/* Responsive: Stack bio box and image vertically on small screens */
+@media (max-width: 700px) {
+  .bio-section-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .bio-image {
+    margin-left: 0;
+    margin-top: 20px;
+    max-width: 80vw;
+  }
+  .bio {
+    max-width: 95vw;
+    align-items: center;
+  }
+}
+
+/* Projects Section: Layout similar to About Me section */
+.projects {
+  display: flex; /* Place children side by side */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  background-color: #FEC97A; /* Same background as hero */
+  padding: 40px 20px;
+  margin-bottom: 30px; /* Space below section */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12); /* Slightly stronger shadow */
+  min-height: calc(100vh - 200px); /* Fill most of the screen */
+}
+
+/* Left side of Projects: Project cards */
+.projects-left {
+  flex: 1.5; /* Take up more space */
+  padding: 20px;
+}
+
+/* Right side of Projects: Optional image or content */
+.projects-right {
+  flex: 1; /* Take up less space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Skills Section: Layout similar to About Me section */
+.skills {
+  display: flex; /* Place children side by side */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  background-color: #ffe190; /* Same background as hero */
+  padding: 10px 10px; /* Keep horizontal padding */
+  margin-bottom: 30px; /* Space below section */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12); /* Slightly stronger shadow */
+  min-height: 120px; /* Make the skills section thinner vertically */
+}
+
+.skills h2 {
+  font-size: 45px; /* Decreased from 40px to 32px */
+}
+
+/* Left side of Skills: Skills list */
+.skills-left {
+  flex: 1.5; /* Take up more space */
+  padding: 10px; /* Reduce padding for thinner look */
+}
+
+/* Right side of Skills: Optional image or content */
+.skills-right {
+  flex: 1; /* Take up less space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Spacer section: adds empty space before the hero section */
+.spacer-section {
+  height: 30px;      /* 30px tall empty space */
+  width: 100%;       /* Fill the width of the page */
+}
+
+/* Make the text in the Contact Me section white for readability */
+.contact {
+  color: white;
+}
+
+/* Make the text in the footer white for readability */
+.footer {
+  color: white;
+}
+
+/* Single Image Section: centers an image between sections */
+.single-image-section {
+  display: flex;              /* Use flex to center the image */
+  justify-content: center;    /* Center horizontally */
+  align-items: center;        /* Center vertically */
+  margin: 30px 0;             /* Space above and below */
+}
+
+.single-image {
+  max-width: 90vw;            /* Responsive width */
+  max-height: 350px;          /* Limit height */
+  border-radius: 16px;        /* Rounded corners */
+  box-shadow: 0 4px 16px rgba(0,0,0,0.14); /* Soft shadow */
+}
+
+/* Slider button styles for the single image section */
+.slider-btn {
+  background-color: #FEC97A; /* Match the hero/about color */
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 22px;
+  margin: 0 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.2s;
+}
+.slider-btn:hover {
+  background-color: #ffdca8;
+}
+
+/* Section for adding images to the slider */
+.add-slider-image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#add-image-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+#new-image-url {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 220px;
+}
+
+#add-image-form button {
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: none;
+  background-color: #FEC97A;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#add-image-form button:hover {
+  background-color: #ffdca8;
+}
+
+#add-image-message {
+  color: #333;
+  font-size: 15px;
+  min-height: 18px;
+}
+
+/* Title for the image slider section */
+.slider-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 16px;
+  color: white; /* Make the slider title text white */
+}

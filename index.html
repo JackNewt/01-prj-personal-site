@@ -2,10 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Personal Site</title>
+  <title>Jaqlyn Crow [Elijah Brown]</title>
+  <!-- Link to your CSS file -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Add your HTML content here -->
+  <!-- Navigation Bar: This bar stays at the top of the page -->
+  <nav class="navbar">
+    <!-- Website title on the left side, now links to the top of the page -->
+    <a href="#" class="navbar-title">Jaqlyn Crow [Elijah Brown]</a>
+    <!-- Menu button for small screens: now an image instead of text -->
+    <!-- The menu button should appear on the right side of the navbar -->
+    <button class="navbar-toggle" onclick="toggleMenu()" aria-label="Open navigation menu">
+      <!-- Simple hamburger icon image for menu -->
+      <img src="img/menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt="Menu">
+    </button>
+    <ul id="navbar-links">
+      <!-- Each list item is a link in the navigation bar -->
+      <li><a href="#">Home</a></li>
+      <li><a href="#bio-section">About</a></li>
+      <li><a href="#slider-section">Projects</a></li> <!-- Link Projects to slider section -->
+      <li><a href="#skills-section">Skills</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Spacer section for extra space above hero -->
+  <div class="spacer-section"></div>
+
+  <!-- Hero Section -->
+  <div class="hero-section-wrapper">
+    <!-- Hero text box -->
+    <div class="hero">
+      <div class="hero-text">
+        <!-- All your hero text goes here -->
+        <h1>Welcome to My Portfolio!</h1>
+        <p>Hello, I'm Jaqlyn Crow.</p>
+      </div>
+    </div>
+    <!-- Hero image outside the box -->
+    <img src="img/20241118_220226.jpg" alt="Profile picture" class="hero-image">
+  </div>
+
+  <!-- About Me Section -->
+  <div class="bio-section-wrapper" id="bio-section">
+    <!-- Bio image on the left -->
+    <img src="img/20250501_183229.jpg" alt="A photo of Jaqlyn Crow" class="bio-image">
+    <!-- Bio text box on the right -->
+    <div class="bio">
+      <div class="bio-text">
+        <!-- All your about me text goes here -->
+        <h2>About Me</h2>
+        <p>I am a Game Design Major with a passion for Statistical studies, Ui design, and Worldbuilding!. I hope to use my talents to make engaging interactive experiences that will not only have players thinking about their strategy, but also theorizing about it's story.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Single Image Section with Slider -->
+  <!-- Title above the image slider -->
+  <h2 class="slider-title" id="slider-section">Some of my Work!</h2>
+  <div class="single-image-section">
+    <!-- Button to go to the previous image -->
+    <button class="slider-btn" onclick="prevSlide()" aria-label="Previous image">&#8592;</button>
+    <!-- The image that changes -->
+    <img id="slider-image" src="img/Untitled95_20250322045004.png" alt="Slider image" class="single-image">
+    <!-- Button to go to the next image -->
+    <button class="slider-btn" onclick="nextSlide()" aria-label="Next image">&#8594;</button>
+  </div>
+
+  <!-- Skills Section -->
+  <section class="skills" id="skills-section">
+    <h2>Some of my Skills Include </h2>
+    <ul class="skills-list">
+      <li>Worldbuilding</li>
+      <p> I've built an expansive world as a hobby</p>
+      <li>Cartoonism</li>
+      <p> I frequently sketch characters and locations in my own cartoonist artstyle</p>
+      <li>Game Design</li>
+      <p> I'm studying game design at University, and hope to go into the industry</p>
+      <!-- Add more skills as needed -->
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact-section">
+    <h2>Contact Me</h2>
+    <p>If you'd like to get in touch, please email me at <a href="mailto:browelj@iu.edu">browelj@iu.edu</a>.</p>
+  </section>
+
+  <script>
+    // This function shows or hides the navigation links on small screens
+    function toggleMenu() {
+      var links = document.getElementById('navbar-links');
+      // Toggle the 'show' class to display or hide the links
+      links.classList.toggle('show');
+    }
+
+    // Simple image slider for the single image section
+    var sliderImages = [
+      "img/Untitled95_20250322045004.png",
+      "img/Untitled91_20250314004932-1.png",
+      "img/Untitled112_20250427014317.png",
+      "img/Untitled111_20250426030503.png"
+      // Add more image paths as needed
+    ];
+    var currentSlide = 0;
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + sliderImages.length) % sliderImages.length;
+      document.getElementById('slider-image').src = sliderImages[currentSlide];
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % sliderImages.length;
+      document.getElementById('slider-image').src = sliderImages[currentSlide];
+    }
+
+    // Function to add a new image to the slider
+    function addImageToSlider(event) {
+      event.preventDefault(); // Prevent form from submitting
+      var input = document.getElementById('new-image-url');
+      var url = input.value.trim();
+      var message = document.getElementById('add-image-message');
+      if (url) {
+        sliderImages.push(url); // Add new image URL to the array
+        message.textContent = "Image added!";
+        input.value = ""; // Clear the input
+      } else {
+        message.textContent = "Please enter a valid image URL.";
+      }
+    }
+  </script>
 </body>
 </html>
